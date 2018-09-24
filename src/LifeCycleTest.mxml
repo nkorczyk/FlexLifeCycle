@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/mx"
+	layout="vertical"
+	width="100%" height="100%" xmlns:classes="classes.*">
+	<fx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			
+			[Bindable]
+			public var arr:ArrayCollection = new ArrayCollection();
+			
+			private function button1_clickHandler(event:MouseEvent):void
+			{
+				var c:int = 0;
+				while (c++ < 100)
+				{
+					arr.addItem(c);
+				}
+			}
+		]]>
+	</fx:Script>
+	<mx:VBox>
+		<mx:Button label="Click me" click="button1_clickHandler(event)"/>
+		<!--<classes:BadList id="theList" dataProvider="{arr}"/>-->
+		<classes:GoodList id="theList" dataProvider="{arr}"/>
+	</mx:VBox>
+</mx:Application>
